@@ -56,8 +56,8 @@ goto:EOF
 
 :lsp
 echo Setting password policy...
-::Set account lockout to 5, min length to 8, max age to 30, min age to 1, and history to 5
-net accounts /lockoutthreshold:5 /MINPWLEN:8 /MAXPWAGE:30 /MINPWAGE:1 /UNIQUEPW:5 
+::Set account lockout to 5, min length to 10, max age to 30, min age to 1, and history to 5
+net accounts /lockoutthreshold:5 /MINPWLEN:10 /MAXPWAGE:30 /MINPWAGE:1 /UNIQUEPW:5 
 echo Set password policy: Password policy must meet complexity to enable
 echo Set password policy: Store passwords using reversible encryption to disabled
 echo Secpol.msc will be started for manual process
@@ -300,16 +300,13 @@ net user Guest /active:no && (
 	(call)
 ) || echo Guest account not disabled
 echo Disabled guest account
-echo Renaming Administrator to "Dude" and Guest to "LameDude"
-start C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "%path%resources\RenameDefAccounts.ps1"
-echo Renamed Administrator to "Dude" and Guest to "LameDude"
 goto:EOF
 
 :passwords
-echo Making passwords expire, and setting password to: CyberPatriot1 IMPORTANT
+echo Making passwords expire, and setting password to: CybPat447! IMPORTANT
 echo Please change the main account password after script
 for /f "tokens=*" %%a in ('type %path%resources\users.txt') do (
-	net user "%%a" "CyberPatriot1"
+	net user "%%a" "CybPat447!"
 	C:\Windows\System32\wbem\wmic UserAccount where Name="%%a" set PasswordExpires=True
 )
 echo Made passwords expire, and set passwords
